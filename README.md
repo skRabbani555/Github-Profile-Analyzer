@@ -1,7 +1,5 @@
 # GitHub Profile Analyzer & Reviewer (Vite + React)
 
-A React-based GitHub Profile Analyzer & Reviewer with charts, detailed analysis, and profile improvement suggestions.
-
 Analyze any GitHub profile with charts, repo insights, recent activity, and an **automated written review**.
 
 ## Features
@@ -17,3 +15,30 @@ Analyze any GitHub profile with charts, repo insights, recent activity, and an *
 ```bash
 npm install
 npm run dev
+```
+
+Open the local URL shown by Vite.
+
+## Avoid Rate Limits (Recommended)
+1. Create a **fine-grained personal access token** (no extra scopes needed for public data).
+2. Create a `.env` file at the project root with:
+```
+VITE_GITHUB_TOKEN=ghp_********************************
+```
+3. Restart `npm run dev`.
+
+> Do **not** commit your token.
+
+## Build
+```bash
+npm run build
+npm run preview
+```
+
+## Notes
+- Some GitHub endpoints (like repo stats) may return cached `202 Accepted`. This app focuses on lightweight endpoints for responsiveness.
+- Language aggregation is limited to the 30 largest repos to keep the experience snappy and API‑limit friendly.
+- Recent activity is estimated using the public Events API (PushEvents in the last 30 days).
+
+## License
+MIT
